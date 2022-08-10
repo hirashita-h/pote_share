@@ -8,7 +8,7 @@ class RoomsController < ApplicationController
     room.user_id = current_user.id
     if room.save
       #flash[:notice] = ""
-      redirect_to rooms_path
+      redirect_to room_path(room)
     else
       render "new"
     end
@@ -18,6 +18,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @reservaion = Reservation.new
   end
 
   private
