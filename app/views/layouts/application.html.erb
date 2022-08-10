@@ -12,6 +12,18 @@
   </head>
 
   <body>
+      <header>
+      <div><%= link_to "Pote Share", root_path, class: "title mb-2 text-white" %></div>
+
+     <% if user_signed_in? %>
+        <div>
+          <div><%= link_to "ルーム登録", new_room_path, class: "text-white" %></div>
+          <div><%= link_to "登録済みルーム一覧", user_path(current_user.id), class: "text-white" %></div>
+          <div><%= link_to "設定", account_users_path, class: "text-white" %></div>
+          <div><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %></div>
+        </div>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
