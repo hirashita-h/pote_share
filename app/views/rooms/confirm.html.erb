@@ -1,0 +1,35 @@
+<h1>
+  <%= @room.name %>
+</h1>
+
+<p>
+  <%= @room.introduction %>
+</p>
+
+<p>
+  <%= @room.price %>
+</p>
+
+<p>
+  <%= @room.address %>
+</p>
+
+<p>
+  <%= @room.image %>
+</p>
+
+<p>
+  <%= @room.user_id %>
+</p>
+
+<%= form_with model: @room, local: true do |f| %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :introduction %>
+  <%= f.hidden_field :price %>
+  <%= f.hidden_field :address %>
+  <%= f.hidden_field :image %>
+  <%= f.hidden_field :image_cache %>
+  <%= f.hidden_field :user_id %>
+  <%= f.submit "投稿する" %>
+  <%= f.submit "修正する", name: "back" %>
+<% end %>

@@ -3,14 +3,18 @@ class RoomsController < ApplicationController
     @room = Room.new
   end
 
+  def confirm
+    @room = Room.new(room_params)
+    @room.user_id = current_user.id
+    render :new if @room.invalid?
+  end
+
   def create
-    room = Room.new(room_params)
-    room.user_id = current_user.id
-    if room.save
-      #flash[:notice] = ""
-      redirect_to rooms_path
+    @room = Room.new(room_params)
+    if params[:back] || !@room.save
+      render :new
     else
-      render "new"
+      redirect_to rooms_url
     end
   end
 
@@ -22,6 +26,6 @@ class RoomsController < ApplicationController
 
   private
   def room_params
-    params.require(:room).permit(:name, :introduction, :price, :address, :image, :image_cache)
+    params.require(:room).permit(:name, :introduction, :price, :address, :image, :image_cache, :user_id)
   end
 end
