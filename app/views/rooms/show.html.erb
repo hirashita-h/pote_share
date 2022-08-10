@@ -4,7 +4,7 @@
       <h1 class="font-weight-normal mt-3">ルーム予約</h1>
     </div>
     <div class="row justify-content-center">
-      <%= form_with url: confirm_reservations_path, local: true do |f| %>
+      <%= form_with model: @reservation, url: confirm_reservation_path, local: true do |f| %>
         <div class="form-group">
           <%= f.label :check_in_day, class: "form-label" %>
           <% # <label class="form-label">旅行先</label> %>
