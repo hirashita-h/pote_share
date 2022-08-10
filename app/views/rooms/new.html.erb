@@ -4,7 +4,7 @@
       <h1 class="font-weight-normal mt-3">ルーム情報登録</h1>
     </div>
     <div class="row justify-content-center">
-      <%= form_with model: @room, url: rooms_path, local: true do |f| %>
+      <%= form_with model: @room, local: true do |f| %>
         <div class="form-group">
           <%= f.label :name, class: "form-label" %>
           <% # <label class="form-label">旅行先</label> %>
