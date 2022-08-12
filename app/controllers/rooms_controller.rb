@@ -15,7 +15,8 @@ class RoomsController < ApplicationController
   end
 
   def index
-    @rooms = Room.all
+    @content = params[:content]
+    @rooms = Room.where("address like ?", "%#{@content}%")
   end
 
   def show

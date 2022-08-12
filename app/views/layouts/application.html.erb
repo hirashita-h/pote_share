@@ -5,17 +5,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-      <header>
+    <header>
       <div><%= link_to "Pote Share", root_path, class: "title mb-2 text-white" %></div>
-
-     <% if user_signed_in? %>
+      <%= render 'layouts/search' %>
+      <% if user_signed_in? %>
         <div>
           <div><%= link_to "ルーム登録", new_room_path, class: "text-white" %></div>
           <div><%= link_to "登録済みルーム一覧", user_path(current_user.id), class: "text-white" %></div>
