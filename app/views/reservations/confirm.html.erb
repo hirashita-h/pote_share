@@ -1,0 +1,19 @@
+<h1>
+  予約内容確認
+</h1>
+<div class="">
+  <div class=""></div>
+  <div class="">開始日</div>
+  <div class=""><%= @reservation.check_in_day %></div>
+  <div class="">終了日</div>
+  <div class=""><%= @reservation.check_out_day %></div>
+  <div class=""><%= '使用日数${@}' %></div>
+  <div class=""><%= '人数' %></div>
+  <div class="">合計金額</div>
+  <div class=""><%=  %></div>
+  <div class="">上記内容でよろしければ「予約を確定」を押してください</div>
+</div>
+<%= form_with url: reservations_path, method: :post, local: true do |f| %>
+  <%= f.submit "予約を確定" %>
+  <%= f.submit "ルーム詳細に戻る", name: "back" %>
+<% end %>

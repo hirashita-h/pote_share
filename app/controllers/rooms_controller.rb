@@ -15,13 +15,16 @@ class RoomsController < ApplicationController
   end
 
   def index
+    @rooms = Room.all
   end
 
   def show
+    session.delete(:reservation)
     @reservaion = Reservation.new
   end
 
   private
+
   def room_params
     params.require(:room).permit(:name, :introduction, :price, :address, :image, :image_cache)
   end
