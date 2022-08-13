@@ -11,7 +11,7 @@
             <div class="room-profile">
               <div class="room-profile-name"><%= reservation.room.name %></div>
               <div class="room-profile-city"><%= reservation.room.introduction %></div>
-              <div class="room-profile-price price-icon"><%= reservation.room.price %></div>
+              <div class="room-profile-price price-icon"><%= reservation.room.price * reservation.number_of_people * ((reservation.check_out_day - reservation.check_in_day).round / 24 / 60 / 60)%></div>
               <div><%= reservation.check_in_day %></div>
               <div><%= reservation.check_out_day %></div>
               <div><%= reservation.created_at %></div>
