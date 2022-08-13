@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   end
   resources :rooms, only: [:index, :show, :new, :create]
   devise_for :users
-  resources :users, only: [:show, :edit, :update] do
+  resources :users, only: [:show, :update] do
     get :account, on: :collection
+    get :profile, on: :collection
   end
   root "homes#top"
 end
