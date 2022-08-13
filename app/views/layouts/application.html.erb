@@ -16,6 +16,7 @@
       <% if user_signed_in? %>
         <div>
           <div><%= link_to "ルーム登録", new_room_path, class: "text-white" %></div>
+          <div><%= link_to "予約済みルーム一覧", reservations_path, class: "text-white" %></div>
           <div><%= link_to "登録済みルーム一覧", user_path(current_user.id), class: "text-white" %></div>
           <div><%= link_to "設定", account_users_path, class: "text-white" %></div>
           <div><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %></div>
@@ -23,5 +24,8 @@
       <% end %>
     </header>
     <%= yield %>
+        <footer class="footer">
+      <p>© 2020 POTEPAN.INC.</p>
+    </footer>
   </body>
 </html>

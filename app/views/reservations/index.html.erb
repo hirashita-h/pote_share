@@ -1,1 +1,22 @@
-<div class="abc"></div>
+<div class="container-fiuld room">
+  <h4 class="pb-4">予約済みルーム一覧</h4>
+  <div class="row">
+    <div class="col-sm-6 col-lg-4 col-xl-3">
+      <% @reservations.each do |reservation| %>
+        <%= link_to room_path(reservation.room_id) do %>
+          <div class="room-frame-inner">
+            <div class="room-image-out">
+              <%= image_tag(reservation.room.image_url, width: 100) if reservation.room.image? %>
+            </div>
+            <div class="room-profile">
+              <div class="room-profile-name"><%= reservation.room.name %></div>
+              <div class="room-profile-city"><%= reservation.room.introduction %></div>
+              <div class="room-profile-price price-icon"><%= reservation.room.price %></div>
+              <div><%= reservation.check_in_day %></div>
+              <div><%= reservation.check_out_day %></div>
+              <div><%= reservation.created_at %></div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </body>
