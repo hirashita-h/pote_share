@@ -22,6 +22,7 @@ class RoomsController < ApplicationController
   def show
     session.delete(:reservation)
     @reservaion = Reservation.new
+    @room = Room.find(params[:id])
   end
 
   private
