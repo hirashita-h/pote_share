@@ -16,6 +16,13 @@ module PoteShare
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
+    # アプリケーション側のタイムゾーン
+    config.time_zone = "Tokyo"
+    # DB側から受け取った時刻をどのタイムゾーンとして解釈するか
+    config.active_record.default_timezone = :local
+    # デフォルトは:enになっている
+    config.i18n.default_locale = :ja
+    # localeファイルの読み込み設定
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.autoload_paths += Dir.glob("#{config.root}/app/uploaders")
