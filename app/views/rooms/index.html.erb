@@ -1,23 +1,27 @@
-<div class="container-fiuld room">
-  <h4 class="pb-4">検索結果：1件</h4>
-  <div class="row">
+<h4 class="pb-4">検索結果 <%= @rooms.count %> 件</h4>
+<div class="row">
+  <% @rooms.each do |room| %>
     <div class="col-sm-6 col-lg-4 col-xl-3">
-      <% @rooms.each do |room| %>
-        <%= link_to room_path(room) do %>
-          <div class="room-frame-inner">
-            <div class="room-image-out">
-              <%= image_tag(room.image_url, width: 100) if room.image? %>
+      <div class="card">
+        <div class="card-body">
+          <%= link_to room_path(room), class: "text-decoration-none" do %>
+            <div class="room-frame-inner">
+              <div class="room-image-out">
+                <% if room.image? %>
+                  <%= image_tag(room.image_url, class: "img-fluid") %>
+                <% else %>
+                  <%= image_tag("default.jpg", class: "img-fluid" ) %>
+                <% end %>
+              </div>
+              <div class="row text-body">
+                <p class="fw-bolder fs-5 mt-1"><%= room.name %></p>
+                <p class=""><%= room.address %></p>
+                <p class="text-end">¥<%= room.price %></p>
+              </div>
             </div>
-            <div class="room-profile">
-              <div class="room-profile-name"><%= room.name %></div>
-              <div class="room-profile-city"><%= room.address %></div>
-              <div class="room-profile-price price-icon"><%= room.price %></div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <footer class="footer">
-      <p>© 2020 POTEPAN.INC.</p>
-    </footer>
-  </body>
+  <% end %>
+</div>

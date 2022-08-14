@@ -15,8 +15,11 @@ class RoomsController < ApplicationController
   end
 
   def index
-    @rooms = Room.where("address like ?", "%#{params[:address]}%")
-    @rooms = Room.where("name like ? or introduction like ? or address like ?", "%#{params[:content]}%", "%#{params[:content]}%", "%#{params[:content]}%")
+    if params[:content]
+      @rooms = Room.where("name like ? or introduction like ? or address like ?", "%#{params[:content]}%", "%#{params[:content]}%", "%#{params[:content]}%").reverse
+    else
+      @rooms = Room.where("address like ?", "%#{params[:address]}%")
+    end
   end
 
   def show
