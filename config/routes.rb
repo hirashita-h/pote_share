@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :reservations, only: [:index, :new, :create] do
+    post :confirm, on: :member
+  end
+  resources :rooms, only: [:index, :show, :new, :create]
+  devise_for :users
+  resources :users, only: [:show, :update] do
+    get :account, on: :collection
+    get :profile, on: :collection
+  end
+  root "homes#top"
 end

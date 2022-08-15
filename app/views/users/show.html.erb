@@ -1,0 +1,28 @@
+<h1>登録済みルーム一覧</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ルーム画像</th>
+      <th>ルーム名</th>
+      <th>ルーム紹介</th>
+      <th>料金</th>
+      <th>作成日</th>
+    </tr>
+  </thead>
+  <% @rooms.each do |room| %>
+    <tbody>
+      <tr>
+        <td><% if room.image? %>
+            <%= link_to image_tag(room.image_url, width: 100), room_path(room) %>
+          <% else %>
+            <%= link_to image_tag("default.jpg", width: 100), room_path(room) %>
+          <% end %>
+        </td>
+        <td><%= link_to "#{room.name}", room_path(room) %></td>
+        <td><%= room.introduction %></td>
+        <td><%= room.price %></td>
+        <td><%= room.created_at %></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>

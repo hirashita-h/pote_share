@@ -1,0 +1,15 @@
+<nav class="navbar navbar-dark bg-secondary">
+  <div class="container-fluid">
+    <%= link_to "Pote Share", root_path, class: "navbar-brand" %>
+    <%= form_with url: rooms_path, method: :get, local: true do |f| %>
+      <%= f.text_field :address, :placeholder => 'エリア' %>
+      <%= f.text_field :content, :placeholder => 'キーワード' %>
+      <%= f.submit'検索', class: "d-none" %>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= render 'layouts/header_sign_in' %>
+    <% else %>
+      <%= render 'layouts/header_sign_out' %>
+    <% end %>
+  </div>
+</nav>

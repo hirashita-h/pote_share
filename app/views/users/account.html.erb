@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-body">
+    <h1>アカウント</h1>
+    <div class="row fs-7 mb-2">
+      <div class="col-md-3">メールアドレス</div>
+      <div class="col-md-9"><%= current_user.email %></div>
+    </div>
+    <div class="row fs-7 mb-3">
+      <div class="col-md-3">パスワード</div>
+      <div class="col-md-9">*********</div>
+    </div>
+    <%= link_to '編集', edit_user_registration_path, class: "btn btn-outline-primary" %>
+    <%= link_to 'プロフィール', profile_users_path, class: "btn btn-outline-secondary" %>
+  </div>
+</div>

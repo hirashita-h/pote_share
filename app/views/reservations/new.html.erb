@@ -1,0 +1,25 @@
+<div class="cover-new">
+  <div class="container">
+    <div class="row justify-content-center">
+      <h1 class="font-weight-normal mt-3">ルーム予約</h1>
+    </div>
+    <div class="row justify-content-center">
+      <%= form_with model: @reservation, url: reservations_path, local: true do |f| %>
+        <div class="form-group">
+          <%= f.label :check_in_day, class: "form-label" %>
+          <% # <label class="form-label">旅行先</label> %>
+          <%= f.date_field :check_in_day, class: "form-control", :placeholder => '' %>
+        </div>
+        <div
+        <div class="form-group">
+          <% # <label class="form-label">感想</label> %>
+          <%= f.label :number_of_people, class: "form-label" %>
+          <%= f.number_field :number_of_people, class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit "予約する", class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

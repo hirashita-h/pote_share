@@ -1,0 +1,32 @@
+<h4 class="pb-4">予約済みルーム一覧</h4>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ルーム画像</th>
+      <th>ルーム名</th>
+      <th>ルーム紹介</th>
+      <th>合計料金</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>予定確定日</th>
+    </tr>
+  </thead>
+  <% @reservations.each do |reservation| %>
+    <tbody class="table-striped">
+      <tr>
+        <td><% if reservation.room.image? %>
+            <%= link_to image_tag(reservation.room.image_url, width: 100), room_path(reservation.room_id) %>
+          <% else %>
+            <%= link_to image_tag("default.jpg", width: 100), room_path(reservation.room) %>
+          <% end %>
+        </td>
+        <td><%= link_to "#{reservation.room.name}", room_path(reservation.room) %></td>
+        <td><%= reservation.room.introduction %></td>
+        <td><%= reservation.room.price * reservation.number_of_people * ((reservation.check_out_day - reservation.check_in_day).round / 24 / 60 / 60)%></td>
+        <td><%= reservation.check_in_day %></td>
+        <td><%= reservation.check_out_day %></td>
+        <td><%= reservation.room.created_at %></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
