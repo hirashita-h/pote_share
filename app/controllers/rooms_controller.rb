@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  before_action :redirect_root, except: [:index, :show]
+
   def new
     @room = Room.new
   end
@@ -32,5 +34,9 @@ class RoomsController < ApplicationController
 
   def room_params
     params.require(:room).permit(:name, :introduction, :price, :address, :image, :image_cache)
+  end
+
+  def redirect_root
+    redirect_to root_path unless user_signed_in?
   end
 end
