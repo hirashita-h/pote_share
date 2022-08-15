@@ -1,0 +1,14 @@
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav me-auto text-end">
+      <li class="nav-item"><%= link_to "ルーム登録", new_room_path, class: "text-white nav-link" %></li>
+      <li class="nav-item"><%= link_to "予約済みルーム一覧", reservations_path, class: "text-white nav-link" %></li>
+      <li class="nav-item"><%= link_to "登録済みルーム一覧", user_path(current_user.id), class: "text-white nav-link" %></li>
+      <li class="nav-item"><%= link_to "設定", account_users_path, class: "text-white nav-link" %></li>
+      <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white nav-link" %></li>
+    </ul>
+  </div>
+</div>
